@@ -13,6 +13,6 @@ public class Pack implements Comparable<Pack> {
     
     @Override
     public int compareTo(Pack other){
-        return this.wide.compareTo(other.wide);
+        return this.height.compareTo(other.height);
     }
 }
