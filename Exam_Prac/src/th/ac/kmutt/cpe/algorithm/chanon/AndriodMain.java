@@ -6,9 +6,6 @@ import java.util.Scanner;
 import th.ac.kmutt.cpe.algorithm.chanon.Searching.LinearSearch;
 import th.ac.kmutt.cpe.algorithm.chanon.Searching.SearchContext;
 import th.ac.kmutt.cpe.algorithm.chanon.SolveAlgo.LexicographicalOrder;
-import th.ac.kmutt.cpe.algorithm.chanon.Sorting.PancakeSort;
-import th.ac.kmutt.cpe.algorithm.chanon.Sorting.SortContext;
-import th.ac.kmutt.cpe.algorithm.chanon.Sorting.SortStrategy;
 
 
 
@@ -19,7 +16,7 @@ public class AndriodMain {
         int m = sc.nextInt();
         String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String str = alph.substring(0, n);
-        SortContext<Character> sort = new SortContext<>(new PancakeSort<Character>());
+        //SortContext<Character> sort = new SortContext<>(new PancakeSort<Character>());
         LexicographicalOrder LXsolve = new LexicographicalOrder();
         ArrayList<String> PerSet = LXsolve.nextPermutation(str);
         SearchContext<String,ArrayList<Integer>> solver = new SearchContext<>(new LinearSearch<String>());

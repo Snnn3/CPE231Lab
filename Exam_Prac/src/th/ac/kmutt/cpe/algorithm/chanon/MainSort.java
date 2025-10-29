@@ -20,5 +20,6 @@ public class MainSort {
         for (int i = 0; i < arr.size(); i++) {
             System.out.println(arr.get(i).x + " " + arr.get(i).y);
         }
+        sc.close();
     }
 }
