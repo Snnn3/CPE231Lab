@@ -3,22 +3,20 @@ package th.ac.kmutt.cpe.algorithm.chanon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import th.ac.kmutt.cpe.algorithm.chanon.Sorting.QuickSort;
+import th.ac.kmutt.cpe.algorithm.chanon.Sorting.PancakeSort;
 import th.ac.kmutt.cpe.algorithm.chanon.Sorting.SortContext;
 
-public class QuickMain {
+public class PancakeMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> pan = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            list.add(sc.nextInt());
+            pan.add(sc.nextInt());
         }
-
-        SortContext<Integer> solve = new SortContext<Integer>(new QuickSort<>());
-        solve.executeSort(list);
-        System.out.println(list);
-
+        SortContext<Integer> solver = new SortContext<Integer>(new PancakeSort<>());
+        solver.executeSort(pan);
+        System.out.println(pan);
         sc.close();
     }
 }

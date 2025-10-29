@@ -5,17 +5,18 @@ import java.util.Scanner;
 
 import th.ac.kmutt.cpe.algorithm.chanon.Searching.LinearSearch;
 import th.ac.kmutt.cpe.algorithm.chanon.Searching.SearchContext;
+import th.ac.kmutt.cpe.algorithm.chanon.SolveAlgo.LexicographicalOrder;
 
 
 
-public class Andriod {
+public class AndriodMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
         String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String str = alph.substring(0, n);
-        Lexi LXsolve = new Lexi();
+        LexicographicalOrder LXsolve = new LexicographicalOrder();
         ArrayList<String> PerSet = LXsolve.nextPermutation(str);
         SearchContext<String,ArrayList<Integer>> solver = new SearchContext<>(new LinearSearch<String>());
         

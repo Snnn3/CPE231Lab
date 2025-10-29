@@ -1,9 +1,9 @@
-package th.ac.kmutt.cpe.algorithm.chanon;
+package th.ac.kmutt.cpe.algorithm.chanon.SolveAlgo;
 
 import java.util.ArrayList;
 
 
-public class Lexi {
+public class LexicographicalOrder {
     public char[] swap(char[] arr,int i, int j){
         char temp = arr[i];
         arr[i] = arr[j];

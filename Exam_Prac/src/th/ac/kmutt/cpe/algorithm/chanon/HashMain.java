@@ -2,6 +2,8 @@ package th.ac.kmutt.cpe.algorithm.chanon;
 
 import java.util.Scanner;
 
+import th.ac.kmutt.cpe.algorithm.chanon.SolveAlgo.Hash;
+
 public class HashMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

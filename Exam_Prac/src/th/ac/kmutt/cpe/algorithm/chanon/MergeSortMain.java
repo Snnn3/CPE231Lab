@@ -3,20 +3,21 @@ package th.ac.kmutt.cpe.algorithm.chanon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import th.ac.kmutt.cpe.algorithm.chanon.Sorting.PancakeSort;
+import th.ac.kmutt.cpe.algorithm.chanon.Sorting.BottomUpMergeSort;
 import th.ac.kmutt.cpe.algorithm.chanon.Sorting.SortContext;
 
-public class Pancake {
+public class MergeSortMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        ArrayList<Integer> pan = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            pan.add(sc.nextInt());
+            list.add(sc.nextInt());
         }
-        SortContext<Integer> solver = new SortContext<Integer>(new PancakeSort<>());
-        solver.executeSort(pan);
-        System.out.println(pan);
+
+        SortContext<Integer> solver = new SortContext<Integer>(new BottomUpMergeSort<>());
+        solver.executeSort(list);
+        System.out.println(list);
         sc.close();
     }
 }
