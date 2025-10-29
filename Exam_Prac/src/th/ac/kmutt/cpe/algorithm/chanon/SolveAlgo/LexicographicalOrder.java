@@ -48,4 +48,14 @@ public class LexicographicalOrder {
         }
         return perList;
     }
+
+
+
+
+//     private void sad(ArrayList<Integer> list,int i, int j){
+//         int temp = list.get(i);
+//         list.set(i, list.get(j));
+//         list.set(j, temp);
+
+//     }
 }

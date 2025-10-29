@@ -19,7 +19,7 @@ public class AndriodMain {
         LexicographicalOrder LXsolve = new LexicographicalOrder();
         ArrayList<String> PerSet = LXsolve.nextPermutation(str);
         SearchContext<String,ArrayList<Integer>> solver = new SearchContext<>(new LinearSearch<String>());
-        
+        System.out.println(PerSet);
         for (int i = 0; i < m; i++) {
             String finding = sc.next();
             ArrayList<Integer> index = solver.executeSearch(PerSet, finding);

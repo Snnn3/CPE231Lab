@@ -1,14 +1,7 @@
 package th.ac.kmutt.cpe.algorithm.chanon.SolveAlgo;
 
 public class MaximumSumSubArray {
-    public int MaxSum(int[] arr, int l, int r){
-        if (l == r) {
-            return arr[r];
-        }
-        int mid = (l+r)/2;
-        //System.out.println(mid);
-        int LSS = MaxSum(arr, l, mid);
-        int RSS = MaxSum(arr, mid + 1, r);
+    public int CrossingSum(int[] arr,int l, int mid, int r){
         int MaxLeft = Integer.MIN_VALUE;
         int MaxRight = Integer.MIN_VALUE;
         int temp = 0;
@@ -25,21 +18,36 @@ public class MaximumSumSubArray {
                 MaxRight = temp;
             }
         }
-        //System.out.println(MaxLeft + " "+ MaxRight);
-        int CSS = MaxLeft+MaxRight;
-        if (CSS > LSS) {
-            if (CSS > RSS) {
-                return CSS;
+        return MaxLeft+MaxRight;
+    }
+
+    public int find3Max(int F,int S,int T){
+        if (F > S) {
+            if (F > T) {
+                return F;
             }else{
-                return RSS;
+                return T;
             }
         }else{
-            if (LSS > RSS) {
-                return LSS;
+            if (S > T) {
+                return S;
             }else{
-                return RSS;
+                return T;
             }
         }
+    }
+
+    public int MaxSum(int[] arr, int l, int r){
+        if (l == r) {
+            return arr[r];
+        }
+        int mid = (l+r)/2;
+        //System.out.println(mid);
+        int LSS = MaxSum(arr, l, mid);
+        int RSS = MaxSum(arr, mid + 1, r);
+        //System.out.println(MaxLeft + " "+ MaxRight);
+        int CSS = CrossingSum(arr, l, mid, r);
+        return find3Max(LSS, RSS, CSS);
 
     }
 }
