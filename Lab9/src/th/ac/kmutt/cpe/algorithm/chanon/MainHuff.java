@@ -1,31 +1,55 @@
 package th.ac.kmutt.cpe.algorithm.chanon;
 
-import java.util.PriorityQueue;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MainHuff {
-    public static void main(String[] args) {
-        PriorityQueue<HuffmanNode> pq = new PriorityQueue<>();
-        pq.add(new HuffmanNode(5,'a'));
-        pq.add(new HuffmanNode(9, 'b'));
-        pq.add(new HuffmanNode(16, 'e'));
-        pq.add(new HuffmanNode(13, 'd'));
-        pq.add(new HuffmanNode(12, 'c'));
-        pq.add(new HuffmanNode(45, 'f'));
-        HuffmanTree tree = new HuffmanTree(null);
-        while (true) {    
-            HuffmanNode fir = pq.poll();
-            HuffmanNode sec = pq.poll();
-            int sumfre = fir.frequency + sec.frequency;
-            HuffmanNode temp = new HuffmanNode(sumfre, ' ');
-            temp.leftChild = fir;
-            temp.rightChild = sec;
-            if (pq.isEmpty()) {
-                tree.root = temp;
-                break;
+    
+    public static ArrayList<HuffmanNode> frequencyCount(String str){
+        ArrayList<HuffmanNode> list = new ArrayList<>();
+        for (int i = 0; i < str.length(); i++) {
+            boolean contain = false;
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(j).alphabet == str.charAt(i)) {
+                    list.get(j).frequency++;
+                    contain = true;
+                }
             }
-            pq.add(temp);
+            if(!contain){
+                list.add(new HuffmanNode(str.charAt(i), 0));
+            }
         }
-        System.out.println(tree.root.frequency);
-        System.out.println(tree.traverse(tree));
+        return list;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter String");
+        String str = sc.next();
+        ArrayList<HuffmanNode> list = frequencyCount(str);
+        HuffmanTree tree = new HuffmanTree(null);
+        tree.root = tree.createTree(list) ;
+        tree.enMap();
+        System.out.println("Binary code for each character");
+        tree.printMap();
+        
+        //output 
+        System.out.println("Enter the String that you want to encode");
+        String willencode = sc.next();
+        String encode = tree.encode(willencode);
+        if (encode.isBlank()) {
+            System.out.println(willencode + " can't encode");
+        }else{
+            System.out.println(willencode + " encode to " + encode);
+        }
+        System.out.println("Enter the String that you want to decode");
+        String willdecode = sc.next();
+        String decode = tree.decode(willdecode);
+        if (decode.isBlank()) {
+            System.out.println(willdecode + " can't decode");
+        }else{
+            System.out.println(willdecode + " decode to " + decode);
+        }
+        sc.close();
     }
 }

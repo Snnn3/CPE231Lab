@@ -7,7 +7,7 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
     public HuffmanNode leftChild;
     public HuffmanNode rightChild;
     
-    public HuffmanNode(int frequency, char alphabet){
+    public HuffmanNode(char alphabet, int frequency){
         this.alphabet = alphabet;
         this.frequency = frequency;
         this.leftChild = null;
