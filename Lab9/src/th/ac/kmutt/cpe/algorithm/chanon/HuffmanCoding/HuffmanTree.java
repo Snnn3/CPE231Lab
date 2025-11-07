@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.chanon;
+package th.ac.kmutt.cpe.algorithm.chanon.HuffmanCoding;
 
 import java.util.ArrayList;
 import java.util.HashMap;

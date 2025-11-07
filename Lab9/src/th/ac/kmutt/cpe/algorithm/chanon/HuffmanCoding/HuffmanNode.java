@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.chanon;
+package th.ac.kmutt.cpe.algorithm.chanon.HuffmanCoding;
 
 
 public class HuffmanNode implements Comparable<HuffmanNode> {

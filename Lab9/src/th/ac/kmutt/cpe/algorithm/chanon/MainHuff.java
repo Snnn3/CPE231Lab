@@ -3,6 +3,9 @@ package th.ac.kmutt.cpe.algorithm.chanon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import th.ac.kmutt.cpe.algorithm.chanon.HuffmanCoding.HuffmanNode;
+import th.ac.kmutt.cpe.algorithm.chanon.HuffmanCoding.HuffmanTree;
+
 public class MainHuff {
     
     public static ArrayList<HuffmanNode> frequencyCount(String str){
