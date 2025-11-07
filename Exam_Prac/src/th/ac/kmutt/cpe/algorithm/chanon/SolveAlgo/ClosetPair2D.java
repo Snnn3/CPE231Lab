@@ -52,13 +52,8 @@ public class ClosetPair2D {
                     break;
                 }
             }
-            System.out.println(mid);
             double Closeleft = ClosePair(P, l, mid);
-            System.out.println("xxxxxxxxxxxxxx");
             double Closeright = ClosePair(P, mid + 1, r);
-            System.out.println(l + " " + r);
-            System.out.println("CL: " + Closeleft);
-            System.out.println("CR: " + Closeright);
             double Closest = Math.min(Closeleft, Closeright);
             ArrayList<Pair> Sleft = new ArrayList<>();
             ArrayList<Pair> Sright = new ArrayList<>();
@@ -76,14 +71,11 @@ public class ClosetPair2D {
                     break;
                 }
             }
-
-            
             for (Pair L : Sleft) {
                 for (Pair R : Sright) {
                     Closest = Math.min(Closest, L.distance(R));
                 }
             }
-            System.out.println(l + " " + r + " " + Closest);
             return Closest;
         }
 

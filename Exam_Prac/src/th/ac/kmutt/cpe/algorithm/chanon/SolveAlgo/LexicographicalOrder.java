@@ -34,9 +34,7 @@ public class LexicographicalOrder {
                     Max_I = i;
                 }
             }
-            if (Max_I == -1) {
-                break;
-            }
+            if (Max_I == -1) break;
             for (int j = 0; j < str.length(); j++) {
                 if (newPer[Max_I] < newPer[j]) {
                     Max_J = j;

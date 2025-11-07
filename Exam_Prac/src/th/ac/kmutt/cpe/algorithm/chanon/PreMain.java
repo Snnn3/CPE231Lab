@@ -3,7 +3,7 @@ package th.ac.kmutt.cpe.algorithm.chanon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import th.ac.kmutt.cpe.algorithm.chanon.SolveAlgo.PresortedUnique;
+import th.ac.kmutt.cpe.algorithm.chanon.SolveAlgo.Presorted;
 
 public class PreMain {
     public static void main(String[] args) {
@@ -14,8 +14,8 @@ public class PreMain {
             list.add(sc.nextInt());
         }
 
-        PresortedUnique<Integer> PreSort = new PresortedUnique<>();
-
+        Presorted<Integer> PreSort = new Presorted<>();
+        System.out.println(PreSort.PersortMode(list));
         PreSort.Presort(list);
         System.out.println(list);
         sc.close();

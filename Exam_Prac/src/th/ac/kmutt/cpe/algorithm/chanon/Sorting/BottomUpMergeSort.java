@@ -20,15 +20,23 @@ public class BottomUpMergeSort<T extends Comparable <T>> implements SortStrategy
                 }else{
                     ArrayList<T> SubList1 = new ArrayList<>();
                     ArrayList<T> SubList2 = new ArrayList<>();
-                    SubList1.addAll(list.subList(j,j+i));
-                    SubList2.addAll(list.subList(j+i, j+2*i ));
+                    SubList1.addAll(list.subList(j,j+i-1));
+                    SubList2.addAll(list.subList(j+i, j+2*i-1));
                     merge(list, SubList1,SubList2,j);
+                    }
+                    j = j + 2*i;   
                 }
-                j = j + 2*i;   
+                i = i*2;
             }
-            i = i*2;
-        }
-
+        //     if (list.size() > 1) {
+        //         ArrayList<T> SubList1 = new ArrayList<>();
+        //         ArrayList<T> SubList2 = new ArrayList<>();
+        //         SubList1.addAll(list.subList(0,list.size()/2));
+        //         SubList2.addAll(list.subList(list.size()/2, list.size()));
+        //         sort(SubList1);
+        //         sort(SubList2);
+        //         merge(list, SubList1, SubList2, 0);
+        // }
         return;
     }
 

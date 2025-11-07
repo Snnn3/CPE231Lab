@@ -14,7 +14,7 @@ public class MinHeapBottomUpSort<T extends Comparable<T>> implements SortStrateg
     }
     private void heapify(ArrayList<T> list,int ed){
         int n = ed;
-        for (int i = (n-1)/2; i >= 0; i--) {
+        for (int i = (n)/2; i >= 0; i--) {
             int k = i;
             T v = list.get(k);
             Boolean heap = false;

@@ -4,22 +4,20 @@ import java.util.Scanner;
 
 public class Lottery {
 
-    public static int[] ShiftTable(char[] P,int size){
-        int[] table = new int[size];
-        for (int i = 0; i < size; i++) {
+    public static int[] ShiftTable(char[] P){
+        int[] table = new int[128 + 1];
+        for (int i = 0; i < table.length; i++) {
             table[i] = P.length;
         }
         for (int j = 0; j < P.length - 1; j++) {
-            table[P[j] - 65] = P.length - 1 - j;
+            table[P[j]] = P.length - 1 - j;
         }
+
         return table;
     }
 
     public static int[] Horspool(char[] P, char[] T){
-        int Table[] = ShiftTable(P, 26);
-        // for (int i = 0; i < Table.length; i++) {
-        //     System.out.print(Table[i]+ " ");
-        // }
+        int Table[] = ShiftTable(P);
         int m = P.length;
         int n = T.length;
         int i = P.length - 1;
@@ -33,16 +31,13 @@ public class Lottery {
             if (k == m) {
                 ans[0] = time;
                 ans[1] = i - m + 1;
-                
-                System.out.println(k + " " + i + " " + m + " "+ time);
                 return ans;
             }else{
-                System.out.println(k + " " + i + " " + m + " " + time);
                 time++;
-                i = i + Table[T[i]-65];
+                i = i + Table[T[i]];
             }
-            ans[0] = time;
         }
+        ans[0] = time;
         ans[1] = -1;
         return ans;
     }

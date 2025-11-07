@@ -26,7 +26,7 @@ public class QuickSort<T extends Comparable <T>> implements SortStrategy<T>  {
 
             do {
                 j--;
-            } while (list.get(j).compareTo(p) > 0);
+            } while (list.get(j).compareTo(p) > 0 && j > l);
 
            
             swap(list, i, j);
