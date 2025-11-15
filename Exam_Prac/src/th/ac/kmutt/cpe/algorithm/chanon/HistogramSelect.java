@@ -13,16 +13,25 @@ public class HistogramSelect{
             double with = (max-min)/b;
             ArrayList<bin> binlist = new ArrayList<>();
             double withbin = (min + with); 
+            //withbin = Math.round((withbin*1000.0))/1000.0;
             for (int i = 0; i < b; i++) {
                 binlist.add(new bin(withbin));
                 withbin += with;
+                //withbin = Math.round((withbin*1000.0))/1000.0;
             }
             for (int i = 0; i < temp.size(); i++) {
                 for (int j = 0; j < binlist.size(); j++) {
+                    boolean fill = false;
                     if (temp.get(i)  <= binlist.get(j).range) {
                         binlist.get(j).value.add(temp.get(i));
                         binlist.get(j).count++;
+                        fill = true;
                         break;
+                    }
+
+                    if (!fill) {
+                        binlist.getLast().value.add(temp.get(i));
+                        binlist.getLast().count++;
                     }
                 }
             }
@@ -31,27 +40,26 @@ public class HistogramSelect{
             for (int i = 0; i < binlist.size(); i++) {
                 if (size + binlist.get(i).count >= k) {
                     thisbin = i;
-                    if (i == 0) {
-                        size = 0;
-                    }
                     break;
                 }else{
                     size += binlist.get(i).count;
                 }
             }
             
-            if (k == 1 && binlist.get(thisbin).count == 1) {
-                return binlist.get(thisbin).value.getFirst();
+            if (binlist.get(thisbin).count == 1) {
+                return binlist.get(thisbin).value.get(0);
             }else{
-                for (int j = 0; j < temp.size(); j++) {
-                    if (!binlist.get(thisbin).value.contains(temp.get(j))) {
-                        System.out.println(temp.get(j));
-                        temp.remove(j);
-                        j--;
-                    }
+                ArrayList<Double> next = new ArrayList<>();
+                double low = min + thisbin * with;
+                double high = min + (thisbin + 1) * with;
+                for (double v : temp) {
+                if (v >= low && v <= high) {
+                    next.add(v);
                 }
+            }
+
                 k =  k - size;
-                binlist.removeAll(binlist);
+                temp = next;
             }
         }
     }
